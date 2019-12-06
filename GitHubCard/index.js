@@ -43,9 +43,6 @@ followersArray.forEach(item =>{
     entryPoint.appendChild(myCard);
   })
 })
-  
-
-
 
 /* Step 3: Create a function that accepts a single object as its only argument,
           Using DOM methods and properties, create a component that will return the following DOM element:
@@ -91,7 +88,6 @@ function gitCard(object) {
   info.appendChild(followers);
   info.appendChild(following);
   info.appendChild(bio);
-  profile.appendChild(url);
 
   //classes
   card.classList.add('card');
@@ -100,15 +96,17 @@ function gitCard(object) {
   username.classList.add('username');
 
   //content
+  url.href = object.html_url;
   image.src = object.avatar_url;
   name.textContent = object.name;
   username.textContent = object.login;
   location.textContent = 'Location: ' + object.location;
   url.textContent = object.html_url;
-  profile.textContent = 'Profile: ' + url.textContent;
+  profile.textContent = 'Profile: ';
   followers.textContent = 'Followers: ' + object.followers;
   following.textContent = 'Following: ' + object.following;
   bio.textContent = 'Bio: ' + object.bio;
+  profile.appendChild(url);
   
   return card;
 }
